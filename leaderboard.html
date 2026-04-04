@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZBYTEE - Global Rankings</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .main-content { padding-top: 6rem; transition: var(--transition); padding: 3rem; }
+        @media (max-width: 768px) { .main-content { margin-left: 0; } }
+    </style>
+</head>
+<body class="flex min-h-screen bg-[#0f172a]">
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar"></aside>
+
+    <!-- CONTENT -->
+    <main class="main-content flex-grow animate-fade">
+        <header class="mb-16 flex flex-col md:flex-row md:items-center justify-between gap-10">
+            <div>
+                <h1 class="text-5xl font-black font-outfit mb-2 tracking-tight">Leaderboard</h1>
+                <p class="text-slate-500 font-bold text-lg">Are you in the elite top performers?</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="bg-amber-500/10 border border-amber-500/20 px-8 py-4 rounded-[2rem] flex items-center gap-4">
+                    <div class="flex flex-col">
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-amber-400 font-black mb-1">Global Rank</span>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="trophy" class="w-6 h-6 text-amber-500 fill-amber-500"></i>
+                            <span class="font-outfit text-2xl font-black">#142</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- TOP 3 PODIUM (Simulated UI) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+            <div class="glass p-12 rounded-[3.5rem] flex flex-col items-center justify-center text-center gap-6 mt-12 border-slate-700/30">
+                <div class="relative">
+                   <div class="w-24 h-24 rounded-full bg-slate-800 border-4 border-slate-700 overflow-hidden shadow-2xl scale-90 opacity-80">
+                      <img src="https://i.pravatar.cc/100?img=11" alt="rank2">
+                   </div>
+                   <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-slate-400 rounded-full flex items-center justify-center font-black text-slate-900 border-4 border-slate-800 shadow-xl">2</div>
+                </div>
+                <div>
+                   <h3 class="text-2xl font-black font-outfit text-slate-300">Sarah Miller</h3>
+                   <p class="text-xs font-black uppercase tracking-widest text-slate-500">2,720 Points</p>
+                </div>
+            </div>
+            <div class="glass p-12 rounded-[4rem] flex flex-col items-center justify-center text-center gap-6 border-amber-500/30 shadow-2xl shadow-amber-500/5 -translate-y-8">
+                <div class="relative">
+                   <div class="w-32 h-32 rounded-full bg-slate-800 border-4 border-amber-500 overflow-hidden shadow-2xl">
+                    <img src="https://i.pravatar.cc/100?img=12" alt="rank1">
+                   </div>
+                   <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center font-black text-slate-900 border-4 border-slate-800 shadow-xl">1</div>
+                   <i data-lucide="crown" class="absolute -top-10 left-1/2 -translate-x-1/2 w-10 h-10 text-amber-500 fill-amber-500 animate-bounce"></i>
+                </div>
+                <div>
+                   <h3 class="text-3xl font-black font-outfit text-amber-400">Alex Johnson</h3>
+                   <p class="text-sm font-black uppercase tracking-widest text-amber-400/80">2,850 Points</p>
+                </div>
+            </div>
+            <div class="glass p-12 rounded-[3.5rem] flex flex-col items-center justify-center text-center gap-6 mt-12 border-slate-700/30">
+                <div class="relative">
+                   <div class="w-24 h-24 rounded-full bg-slate-800 border-4 border-slate-700 overflow-hidden shadow-2xl scale-90 opacity-80">
+                    <img src="https://i.pravatar.cc/100?img=13" alt="rank3">
+                   </div>
+                   <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center font-black text-slate-900 border-4 border-slate-800 shadow-xl">3</div>
+                </div>
+                <div>
+                   <h3 class="text-2xl font-black font-outfit text-slate-300">David Chen</h3>
+                   <p class="text-xs font-black uppercase tracking-widest text-slate-500">2,610 Points</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- LIST SECTION -->
+        <section class="max-w-5xl mx-auto space-y-4" id="leaderboard-list">
+            <!-- Items injected by JS -->
+        </section>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        fetch('data/questions.json')
+            .then(res => res.json())
+            .then(data => {
+                const list = document.getElementById('leaderboard-list');
+                list.innerHTML = data.leaderboard.map(u => `
+                    <div class="glass p-6 px-10 rounded-2xl flex items-center justify-between group hover:border-indigo-500/30 transition-all">
+                        <div class="flex items-center gap-10">
+                            <span class="text-3xl font-black font-outfit text-slate-600 group-hover:text-indigo-400 transition-all">${u.rank}</span>
+                            <div class="flex items-center gap-6">
+                                <div class="w-14 h-14 bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-xl">
+                                    <img src="https://i.pravatar.cc/100?u=${u.name}" alt="">
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold font-outfit text-slate-200">${u.name}</h3>
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-${u.rank_tag === 'Grandmaster' ? 'amber-500' : 'indigo-400'}">${u.rank_tag}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                           <h4 class="text-2xl font-black font-outfit text-slate-200">${u.score.toLocaleString()}</h3>
+                           <p class="text-[10px] font-black uppercase tracking-widest text-slate-500">Points</p>
+                        </div>
+                    </div>
+                `).join('');
+                if (window.lucide) lucide.createIcons();
+            });
+    </script>
+</body>
+</html>
