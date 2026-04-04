@@ -1,0 +1,77 @@
+{
+  "quizzes": [
+    {
+      "id": "sci_01",
+      "topic": "General Science",
+      "difficulty": "Medium",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What is the chemical symbol for Gold?",
+          "options": ["Gd", "Ag", "Au", "Pb"],
+          "answer": "Au"
+        },
+        {
+          "id": 2,
+          "question": "Which planet is known as the Red Planet?",
+          "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+          "answer": "Mars"
+        },
+        {
+          "id": 3,
+          "question": "What is the hardest natural substance on Earth?",
+          "options": ["Gold", "Iron", "Diamond", "Platinum"],
+          "answer": "Diamond"
+        },
+        {
+          "id": 4,
+          "question": "Which gas do plants absorb from the atmosphere?",
+          "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+          "answer": "Carbon Dioxide"
+        },
+        {
+          "id": 5,
+          "question": "What is the powerhouse of the cell?",
+          "options": ["Nucleus", "Ribosome", "Mitochondria", "Golgi Apparatus"],
+          "answer": "Mitochondria"
+        },
+        {
+          "id": 6,
+          "question": "Who proposed the theory of relativity?",
+          "options": ["Isaac Newton", "Albert Einstein", "Nikola Tesla", "Stephen Hawking"],
+          "answer": "Albert Einstein"
+        },
+        {
+          "id": 7,
+          "question": "What is the boiling point of water at sea level?",
+          "options": ["90°C", "100°C", "110°C", "120°C"],
+          "answer": "100°C"
+        },
+        {
+          "id": 8,
+          "question": "Which part of the human eye is responsible for color vision?",
+          "options": ["Retina", "Iris", "Cones", "Rods"],
+          "answer": "Cones"
+        },
+        {
+          "id": 9,
+          "question": "What is the most abundant gas in the Earth's atmosphere?",
+          "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Argon"],
+          "answer": "Nitrogen"
+        },
+        {
+          "id": 10,
+          "question": "What's the speed of light in a vacuum?",
+          "options": ["299,792 km/s", "150,000 km/s", "450,000 km/s", "100,000 km/s"],
+          "answer": "299,792 km/s"
+        }
+      ]
+    }
+  ],
+  "badges": [
+    { "id": "b1", "name": "Early Bird", "icon": "🌅", "unlocked": true },
+    { "id": "b2", "name": "Atomic Master", "icon": "⚛️", "unlocked": false },
+    { "id": "b3", "name": "History Buff", "icon": "📜", "unlocked": true },
+    { "id": "b4", "name": "Tech Titan", "icon": "💻", "unlocked": false }
+  ]
+}
